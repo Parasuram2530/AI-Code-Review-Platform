@@ -31,8 +31,10 @@ services:
         value: "10080"
 
   # Frontend Static Site
-  - type: static
+  - type: web
+    runtime: static
     name: ai-code-review-frontend
+    buildCommand: ""
     staticPublishPath: ./frontend
     headers:
       - path: /*
