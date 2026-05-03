@@ -26,7 +26,7 @@ async function fetchCurrentUser() {
     if (!token) return null;
     
     try {
-        const res = await fetch('http://localhost:8000/auth/me', {
+        const res = await fetch(`${CONFIG.API_BASE_URL}/auth/me`, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }

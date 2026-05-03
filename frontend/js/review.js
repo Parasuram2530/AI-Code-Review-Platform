@@ -27,7 +27,7 @@ function submitReview() {
     output.classList.add("cursor-blink");
     document.getElementById('score-container').innerHTML = "";
     
-    const ws = new WebSocket('ws://localhost:8000/ws/review');
+    const ws = new WebSocket(`${CONFIG.WS_BASE_URL}/ws/review`);
     
     ws.onopen = () => {
         ws.send(JSON.stringify({

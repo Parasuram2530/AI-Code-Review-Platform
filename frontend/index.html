@@ -12,8 +12,8 @@
     </nav>
     <main class="hero">
         <h1>AI-Powered Code Review</h1>
-        <p class="subtext">Get instant, actionable feedback on your code from Claude 3.5 Sonnet.</p>
-        <button id="login-btn" class="btn-primary" onclick="window.location.href='http://localhost:8000/auth/github'">Sign in with GitHub</button>
+        <p class="subtext">Get instant, actionable feedback on your code from Llama 3.</p>
+        <button id="login-btn" class="btn-primary">Sign in with GitHub</button>
     </main>
     <section class="features">
         <div class="card">
@@ -33,12 +33,20 @@
         <div class="badges">
             <span class="badge">FastAPI</span>
             <span class="badge">PostgreSQL</span>
-            <span class="badge">Claude 3.5</span>
+            <span class="badge">Llama 3 (Groq)</span>
             <span class="badge">Vanilla JS</span>
         </div>
     </footer>
+    <script src="js/config.js"></script>
     <script src="js/auth.js"></script>
     <script>
+        const loginBtn = document.getElementById('login-btn');
+        if (loginBtn) {
+            loginBtn.onclick = () => {
+                window.location.href = `${CONFIG.API_BASE_URL}/auth/github`;
+            };
+        }
+
         const urlParams = new URLSearchParams(window.location.search);
         const token = urlParams.get('token');
         if (token) {
