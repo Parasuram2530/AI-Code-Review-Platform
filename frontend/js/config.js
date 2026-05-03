@@ -1,13 +1,5 @@
-const getBaseUrl = () => {
-    return window.location.origin;
-};
-
-const getWsUrl = () => {
-    const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-    return `${protocol}//${window.location.host}`;
-};
-
 const CONFIG = {
-    API_BASE_URL: getBaseUrl(),
-    WS_BASE_URL: getWsUrl()
+    // Points to the Hugging Face Backend Space
+    API_BASE_URL: 'https://parasuu-ai-code-review.hf.space',
+    WS_BASE_URL: 'wss://parasuu-ai-code-review.hf.space'
 };
