@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Review - AI Code Review</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">AI Code Review</div>
+        <div class="nav-right">
+            <a href="dashboard.html" class="nav-link">Dashboard</a>
+            <button class="btn-secondary" onclick="logout()">Logout</button>
+        </div>
+    </nav>
+    <main class="review-layout">
+        <div class="left-panel">
+            <div class="controls">
+                <select id="language-select">
+                    <option value="">Auto-Detect Language</option>
+                    <option value="python">Python</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="java">Java</option>
+                    <option value="go">Go</option>
+                    <option value="rust">Rust</option>
+                    <option value="cpp">C++</option>
+                </select>
+                <button id="submit-btn" class="btn-primary" onclick="submitReview()">Review My Code</button>
+            </div>
+            <textarea id="code-input" placeholder="Paste your code here..."></textarea>
+        </div>
+        <div class="right-panel">
+            <div class="panel-header">
+                <h3>AI Review Output</h3>
+                <div class="status-container">
+                    <span id="status-indicator" class="status idle">Idle</span>
+                    <div id="score-container"></div>
+                </div>
+            </div>
+            <div id="review-output" class="output-area"></div>
+        </div>
+    </main>
+
+    <script src="js/auth.js"></script>
+    <script src="js/review.js"></script>
+    <script>
+        redirectIfNoAuth();
+    </script>
+</body>
+</html>

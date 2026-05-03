@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Code Review</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">AI Code Review</div>
+    </nav>
+    <main class="hero">
+        <h1>AI-Powered Code Review</h1>
+        <p class="subtext">Get instant, actionable feedback on your code from Claude 3.5 Sonnet.</p>
+        <button id="login-btn" class="btn-primary" onclick="window.location.href='http://localhost:8000/auth/github'">Sign in with GitHub</button>
+    </main>
+    <section class="features">
+        <div class="card">
+            <h3>Streaming AI</h3>
+            <p>Real-time token-by-token code review streaming powered by WebSockets.</p>
+        </div>
+        <div class="card">
+            <h3>GitHub Auth</h3>
+            <p>Seamless one-click login using your GitHub account.</p>
+        </div>
+        <div class="card">
+            <h3>Analytics</h3>
+            <p>Track your code quality improvements over time with detailed dashboards.</p>
+        </div>
+    </section>
+    <footer>
+        <div class="badges">
+            <span class="badge">FastAPI</span>
+            <span class="badge">PostgreSQL</span>
+            <span class="badge">Claude 3.5</span>
+            <span class="badge">Vanilla JS</span>
+        </div>
+    </footer>
+    <script src="js/auth.js"></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const token = urlParams.get('token');
+        if (token) {
+            setToken(token);
+            window.history.replaceState({}, document.title, window.location.pathname);
+            window.location.href = 'dashboard.html';
+        } else if (getToken()) {
+            window.location.href = 'dashboard.html';
+        }
+    </script>
+</body>
+</html>
