@@ -45,6 +45,9 @@ services:
   - type: keyvalue
     name: ai-code-review-redis
     plan: free
+    ipAllowList:
+      - cidr: 0.0.0.0/0
+        description: Allow all connections (Managed by Render)
 
 databases:
   - name: ai-code-review-db
